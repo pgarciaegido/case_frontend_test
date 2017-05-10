@@ -50,7 +50,13 @@ gulp.task('scripts', () => {
   // If it has --production flag, minify.
   return gulp.src('app/js/app.js')
     .pipe(argv.production ? gulpWebpack(prod, webpack) : gulpWebpack(dev, webpack))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist/js'))
+})
+
+// HTML
+gulp.task('html', () => {
+  return gulp.src('./app/index.html')
+    .pipe(gulp.dest('./dist'));
 })
 
 
@@ -58,7 +64,8 @@ gulp.task('scripts', () => {
 gulp.task('watch', () => {
   gulp.watch('app/js/**/*.js', ['scripts'])
   gulp.watch('app/scss/**/*.scss', ['styles'])
+  gulp.watch('app/*.html', ['html'])
 })
 
 // Bundles everything
-gulp.task('build', ['scripts', 'styles'])
+gulp.task('build', ['scripts', 'styles', 'html'])
