@@ -1,0 +1,11 @@
+{
+  "name": "case_frontend_test",
+  "version": "0.0.1",
+  "description": "Case front-end selection process application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pablo Egido <pgarciaegido@gmail.com>",
+  "license": "ISC"
+}
