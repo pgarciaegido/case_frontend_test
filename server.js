@@ -33,19 +33,7 @@ server.register(require('inert'), (err) => {
 
   server.route({
     method: 'GET',
-    path: '/user',
-    handler: renderIndex
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/detail',
-    handler: renderIndex
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/list',
+    path: '/user/{id}',
     handler: renderIndex
   });
 
