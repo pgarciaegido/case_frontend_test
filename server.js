@@ -48,6 +48,18 @@ server.register(require('inert'), (err) => {
       }
     }
   })
+
+  // Even tho the files are hosted in templates folder, I'm serving them from the
+  // root so it matches components file location.
+  server.route({
+    method: 'GET',
+    path: '/{file*}',
+    handler: {
+      directory: {
+        path: 'templates'
+      }
+    }
+  })
 });
 
 server.start((err) => {

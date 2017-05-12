@@ -5,6 +5,7 @@ import webpack from 'webpack';
 import gulpWebpack from 'webpack-stream';
 import { argv } from 'yargs';
 import sass from 'gulp-sass';
+import flatten from 'gulp-flatten';
 
 
 // Bundles CSS
@@ -59,13 +60,21 @@ gulp.task('html', () => {
     .pipe(gulp.dest('./dist'));
 })
 
+// Angular templates
+gulp.task('templates', () => {
+  return gulp.src('./app/js/**/*.html')
+    .pipe(flatten()) // Removes parent directories
+    .pipe(gulp.dest('./dist/templates'))
+})
+
 
 // Watch changes in files
 gulp.task('watch', () => {
   gulp.watch('app/js/**/*.js', ['scripts'])
-  gulp.watch('app/scss/**/*.scss', ['styles'])
+  gulp.watch('app/**/*.scss', ['styles'])
   gulp.watch('app/*.html', ['html'])
+  gulp.watch('app/js/**/*.html', ['templates'])
 })
 
 // Bundles everything
-gulp.task('build', ['scripts', 'styles', 'html'])
+gulp.task('build', ['scripts', 'styles', 'html', 'templates'])
