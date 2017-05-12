@@ -1,6 +1,8 @@
 @import './app.variables.scss';
 
 @import '../js/components/header/header.styles';
+@import '../js/components/users/users.styles';
+@import '../js/components/users/userDetails/userDetails.styles';
 
 html, body {
   margin: 0;
