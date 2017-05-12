@@ -16,6 +16,10 @@ const server = new Hapi.Server({
 
 server.connection({ host: 'localhost', port: 8080 })
 
+function renderIndex (request, reply) {
+  reply.file('index.html');
+}
+
 // inert is a plugin to serve statics
 server.register(require('inert'), (err) => {
 
@@ -24,17 +28,21 @@ server.register(require('inert'), (err) => {
   server.route({
     method: 'GET',
     path: '/',
-    handler: function (request, reply) {
-      reply.file('index.html');
-    }
+    handler: renderIndex
   });
 
   server.route({
     method: 'GET',
-    path: '/js/{file*}',
+    path: '/user',
+    handler: renderIndex
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/scripts/{file*}',
     handler: {
       directory: {
-        path: 'js'
+        path: 'scripts'
       }
     }
   })

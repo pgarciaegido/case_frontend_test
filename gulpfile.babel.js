@@ -50,10 +50,10 @@ gulp.task('scripts', () => {
     plugins: [new webpack.optimize.UglifyJsPlugin()]
   }
   // If it has --production flag, minify.
-  return gulp.src('app/js/app.js')
+  return gulp.src('app/scripts/app.js')
     .pipe(plumber())
     .pipe(argv.production ? gulpWebpack(prod, webpack) : gulpWebpack(dev, webpack))
-    .pipe(gulp.dest('./dist/js'))
+    .pipe(gulp.dest('./dist/scripts'))
 })
 
 // HTML
@@ -64,7 +64,7 @@ gulp.task('html', () => {
 
 // Angular templates
 gulp.task('templates', () => {
-  return gulp.src('./app/js/**/*.html')
+  return gulp.src('./app/scripts/**/*.html')
     .pipe(flatten()) // Removes parent directories
     .pipe(gulp.dest('./dist/templates'))
 })
@@ -72,7 +72,7 @@ gulp.task('templates', () => {
 
 // Watch changes in files
 gulp.task('watch', () => {
-  gulp.watch('app/js/**/*.js', ['scripts'])
+  gulp.watch('app/scripts/**/*.js', ['scripts'])
   gulp.watch('app/**/*.scss', ['styles'])
   gulp.watch('app/*.html', ['html'])
   gulp.watch('app/js/**/*.html', ['templates'])
