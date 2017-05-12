@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <h2 class="text-center">Albums</h2>
+      <div ng-repeat="album in model.albums">
+        <h3>{{album.title}}</h3>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <h2 class="text-center">Posts</h2>
+      <div ng-repeat="post in model.posts">
+        <h3>{{post.title}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
