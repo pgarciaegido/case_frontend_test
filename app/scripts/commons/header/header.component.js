@@ -1,3 +1,3 @@
 export const HeaderComponent = {
-  template: 'This is a header!!!!'
+  template: '<a ng-href="/detail">Details</a><a ng-href="/list">    list</a>'
 }

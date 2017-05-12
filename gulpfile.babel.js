@@ -75,7 +75,7 @@ gulp.task('watch', () => {
   gulp.watch('app/scripts/**/*.js', ['scripts'])
   gulp.watch('app/**/*.scss', ['styles'])
   gulp.watch('app/*.html', ['html'])
-  gulp.watch('app/js/**/*.html', ['templates'])
+  gulp.watch('app/scripts/**/*.html', ['templates'])
 })
 
 // Bundles everything

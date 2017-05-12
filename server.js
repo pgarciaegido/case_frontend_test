@@ -39,6 +39,18 @@ server.register(require('inert'), (err) => {
 
   server.route({
     method: 'GET',
+    path: '/detail',
+    handler: renderIndex
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/list',
+    handler: renderIndex
+  });
+
+  server.route({
+    method: 'GET',
     path: '/scripts/{file*}',
     handler: {
       directory: {

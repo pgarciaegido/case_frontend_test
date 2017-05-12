@@ -16,6 +16,7 @@
     "gulp": "^3.9.1",
     "hapi": "^16.1.1",
     "inert": "^4.2.0",
+    "ngcomponentrouter": "^2.1.0",
     "webpack-stream": "^3.2.0",
     "yargs": "^8.0.1"
   },
