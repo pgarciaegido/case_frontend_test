@@ -6,6 +6,7 @@ import gulpWebpack from 'webpack-stream';
 import { argv } from 'yargs';
 import sass from 'gulp-sass';
 import flatten from 'gulp-flatten';
+import plumber from 'gulp-plumber';
 
 
 // Bundles CSS
@@ -13,7 +14,7 @@ gulp.task('styles', () => {
 
   let unCompressed = sass().on('error', sass.logError);
   let compressed = sass({ outputStyle: 'compressed'})
-                       .on('error', sass.logError);
+                        .on('error', sass.logError);
 
   return gulp.src('app/scss/app.scss')
     .pipe(argv.production ? compressed : unCompressed)
@@ -50,6 +51,7 @@ gulp.task('scripts', () => {
   }
   // If it has --production flag, minify.
   return gulp.src('app/js/app.js')
+    .pipe(plumber())
     .pipe(argv.production ? gulpWebpack(prod, webpack) : gulpWebpack(dev, webpack))
     .pipe(gulp.dest('./dist/js'))
 })

@@ -1,6 +1,5 @@
-/*
-* Angular is declared on window object. Script is brought from CDN
-*/
+import angular from 'angular';
+
 angular
   .module('myApp',[])
 

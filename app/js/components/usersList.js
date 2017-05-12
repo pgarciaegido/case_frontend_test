@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 angular
   .module('myApp')
   .controller('Test', ["$scope", "HttpService", ($scope, HttpService) => {

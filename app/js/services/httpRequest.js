@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 angular
   .module('myApp')
   .factory('HttpService', ["$http", ($http) => {
