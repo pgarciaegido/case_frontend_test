@@ -1,3 +1,6 @@
+// Ajax call service.
+// Receives path of URL eg. /users
+// Returns a promise
 export default function HttpRequestsService($http) {
   let httpService = {}
 
