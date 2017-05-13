@@ -3,8 +3,8 @@
     <div class="row">
       <h3 class="col-lg-4" ng-link="['List']">Home</h3>
       <div class="pull-right">
-        <input ng-model="searchText" type="search">
-        <button ng-link="['Search', {search: searchText}]">Search</button>
+        <input ng-keydown="model.searchEnter($event)" ng-model="model.searchText" type="search">
+        <button ng-link="['Search', {search: model.searchText}]">Search</button>
       </div>
     </div>
   </div>
