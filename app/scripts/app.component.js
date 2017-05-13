@@ -4,6 +4,7 @@ export const AppComponent = {
   $routeConfig: [
     { path: '/', component: 'usersList', name: 'List' },
     { path: '/user/:id', component: 'displayAlbumsPosts', name: 'Display' },
+    { path: '/user/:id/album/:albumId', component: 'displayAlbum', name: 'Album'},
     { path: '/**', redirectTo: ['List'] }
   ]
 }

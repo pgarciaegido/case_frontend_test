@@ -1,6 +1,8 @@
+import DisplayAlbumController from './display-album.controller';
+
 export const DisplayAlbum = {
-  template: 'I will display album details',
+  template: '{{model.albums}}',
   bindings: { },
   controllerAs: 'model',
-  controller: function() { }
+  controller: DisplayAlbumController
 }

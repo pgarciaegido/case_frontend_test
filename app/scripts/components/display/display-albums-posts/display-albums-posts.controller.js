@@ -19,5 +19,6 @@ export default function DisplayAlbumsPostsController(HttpRequestsService) {
 
     HttpRequestsService.get(model.pathAlbums)
       .then(res => model.albums = res);
+
   }
 }

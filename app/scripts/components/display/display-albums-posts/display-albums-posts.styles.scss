@@ -1,0 +1,20 @@
+display-albums-posts{
+
+  .album-post-cnt{
+    padding: 20px;
+    box-sizing: border-box;
+
+    .item{
+      background: $softGray;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      h3{
+        margin: 0;
+      }
+    }
+  }
+}
