@@ -3,6 +3,7 @@ export const AppComponent = {
              <ng-outlet></ng-outlet>`,
   $routeConfig: [
     { path: '/', component: 'usersList', name: 'List' },
+    { path: '/search/:search', component: 'searchGeneral', name: 'Search' },
     { path: '/user/:id', component: 'displayAlbumsPosts', name: 'Display' },
     { path: '/user/:id/album/:albumId', component: 'displayAlbum', name: 'Album' },
     { path: '/user/:id/post/:postId', component: 'displayPost', name: 'Post' },

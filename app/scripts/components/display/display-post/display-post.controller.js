@@ -16,14 +16,14 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
     // Here we get the selected post object from router. If we don't pass
     // from router, make new request to API.
     model.post = ComponentComunicatorService.getInfo('post');
-    console.log(model.post)
-
-    if (!model.post) {
-      console.log('pasa');
+    // Returns an array, so get first object
+    if(model.post){
+      model.post = model.post[0]
+    }
+    else {
       model.pathPost = '/posts/' + model.postId
       HttpRequestsService.get(model.pathPost)
         .then(res => {
-          console.log(res)
           model.post = res
         });
     }

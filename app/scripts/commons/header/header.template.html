@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <h3 class="col-lg-4" ng-link="['List']">Home</h3>
-      <input class="pull-right" type="search">
+      <div class="pull-right">
+        <input ng-model="searchText" type="search">
+        <button ng-link="['Search', {search: searchText}]">Search</button>
+      </div>
     </div>
   </div>
 </header>

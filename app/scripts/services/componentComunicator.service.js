@@ -8,7 +8,7 @@ export default function ComponentComunicatorService() {
   }
 
   comunicator.getInfo = function(key) {
-    if (comunicator[key]) return comunicator[key][0];
+    return comunicator[key];
   }
 
   return comunicator;

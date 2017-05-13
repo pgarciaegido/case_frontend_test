@@ -25,10 +25,16 @@ server.register(require('inert'), (err) => {
 
   if (err) throw err;
 
-  // Navigation routes 
+  // Navigation routes
   server.route({
     method: 'GET',
     path: '/',
+    handler: renderIndex
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/search',
     handler: renderIndex
   });
 
