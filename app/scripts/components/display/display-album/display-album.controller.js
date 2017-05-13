@@ -1,6 +1,6 @@
 export default function DisplayAlbumController(HttpRequestsService) {
   let model = this;
-  model.albums = [];
+  model.photos = [];
   model.albumId;
 
   // When router selects this component:
@@ -11,7 +11,7 @@ export default function DisplayAlbumController(HttpRequestsService) {
     model.pathAlbum = '/photos?albumId=' + model.albumId;
 
     HttpRequestsService.get(model.pathAlbum)
-      .then(res => model.albums = res);
+      .then(res => model.photos = res);
 
   }
 }
