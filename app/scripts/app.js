@@ -4,10 +4,12 @@ import { AppComponent } from './app.component';
 import commons from './commons/commons';
 import components from './components/components';
 import HttpRequestsService from './services/httpRequests.service';
+import ComponentComunicatorService from './services/componentComunicator.service';
 
 const root = angular
   .module('caseTest', [ngComponentRouter, commons, components])
   .factory('HttpRequestsService', HttpRequestsService)
+  .factory('ComponentComunicatorService', ComponentComunicatorService)
   .component('appRoot', AppComponent)
   .value("$routerRootComponent", "appRoot")
 

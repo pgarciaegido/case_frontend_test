@@ -25,6 +25,7 @@ server.register(require('inert'), (err) => {
 
   if (err) throw err;
 
+  // Navigation routes 
   server.route({
     method: 'GET',
     path: '/',
@@ -37,6 +38,19 @@ server.register(require('inert'), (err) => {
     handler: renderIndex
   });
 
+  server.route({
+    method: 'GET',
+    path: '/user/{id}/album/{albumId}',
+    handler: renderIndex
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/user/{id}/post/{postId}',
+    handler: renderIndex
+  });
+
+  // Serving statics
   server.route({
     method: 'GET',
     path: '/scripts/{file*}',

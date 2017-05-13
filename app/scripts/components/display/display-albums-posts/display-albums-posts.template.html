@@ -11,7 +11,8 @@
     <!-- posts -->
     <div class="col-sm-12 col-md-6 album-post-cnt">
       <h2 class="text-center">Posts</h2>
-      <div ng-repeat="post in model.posts" class="item">
+      <div ng-link="['Post', {postId: post.id, id: model.userId}]"
+           ng-repeat="post in model.posts" class="item">
         <h3 class="text-center">{{post.title}}</h3>
       </div>
     </div>

@@ -1,6 +1,8 @@
+import DisplayPostController from './display-post.controller';
+
 export const DisplayPost = {
-  template: 'I will display post details',
+  templateUrl: 'display-post.template.html',
   bindings: { },
   controllerAs: 'model',
-  controller: function() { }
+  controller: DisplayPostController
 }
