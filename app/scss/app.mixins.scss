@@ -1,0 +1,12 @@
+@mixin card () {
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid $softGray;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+@mixin cardOnHover () {
+  background-color: $softGray;
+}

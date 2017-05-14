@@ -4,9 +4,11 @@ app-header{
     padding: 10px 0;
     margin-bottom: 20px;
 
-    h3{
-      margin: 0;
+    span{
+      margin-right:10px;
       cursor: pointer;
+      font-weight: bolder;
+      color: white;
     }
   }
 }

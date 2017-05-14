@@ -1,0 +1,19 @@
+users-list{
+  h1{
+    color: $green;
+  }
+
+  .outer-container{
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    .inner-container{
+      @include card();
+    }
+
+    .inner-container:hover{
+      @include cardOnHover();
+    }
+  }
+}
