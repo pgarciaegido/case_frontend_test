@@ -9,4 +9,8 @@ export default function UsersListController (HttpRequestsService, ComponentComun
       model.users = res;
       ComponentComunicatorService.setInfo('users', res);
     })
+
+  model.setCurrentUser = function(userName) {
+    ComponentComunicatorService.setInfo('currentUserName', userName);
+  }
 }

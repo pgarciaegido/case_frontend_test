@@ -1,4 +1,14 @@
 display-album{
+  
+  .breadcrumb-container{
+    @include breadcrumbContainer();
+    margin-bottom: 30px;
+
+    p{
+      @include breadcrumbText();
+    }
+  }
+
   .image-cnt{
     margin-bottom: 10px;
 

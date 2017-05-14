@@ -10,3 +10,14 @@
 @mixin cardOnHover () {
   background-color: $softGray;
 }
+
+@mixin breadcrumbContainer () {
+  background: $softGreen;
+  padding: 10px 0;
+}
+
+@mixin breadcrumbText () {
+  margin: 0;
+  font-weight: bolder;
+  color: $gray;
+}

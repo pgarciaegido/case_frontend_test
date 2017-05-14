@@ -1,3 +1,10 @@
 display-post{
+  .breadcrumb-container{
+    @include breadcrumbContainer();
+    margin-bottom: 30px;
 
+    p{
+      @include breadcrumbText();
+    }
+  }
 }

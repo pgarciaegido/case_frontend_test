@@ -1,20 +1,32 @@
 display-albums-posts{
 
+  .breadcrumb-container{
+    @include breadcrumbContainer();
+
+    p{
+      @include breadcrumbText();
+    }
+  }
+
+  h2{
+    color: $green;
+  }
+
   .album-post-cnt{
     padding: 20px;
     box-sizing: border-box;
 
     .item{
-      background: $softGray;
-      padding: 10px;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      cursor: pointer;
+      @include card();
+      margin-bottom: 20px;
 
       h3{
         margin: 0;
       }
+    }
+
+    .item:hover{
+      @include cardOnHover();
     }
   }
 }

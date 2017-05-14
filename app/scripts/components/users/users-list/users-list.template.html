@@ -2,7 +2,8 @@
   <h1 class="text-center">Funky users</h1>
   <div ng-repeat="user in model.users"
        class="col-sm-12 col-md-6 col-lg-4 outer-container">
-    <div class="inner-container" ng-link="['Display', {id: user.id}]">
+    <div class="inner-container" ng-link="['Display', {id: user.id}]"
+         ng-click="model.setCurrentUser(user.name)">
       <h4 class="text-center">{{user.name}}</h4>
       <p class="text-center">{{user.email}}</p>
       <p class="text-center">{{user.phone}}</p>
