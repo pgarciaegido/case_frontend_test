@@ -1,5 +1,5 @@
 export const SearchByUserComponent = {
-  templateUrl: 'search-general.template.html',
+  templateUrl: 'search.template.html',
   controllerAs: 'model',
   controller: function (HttpRequestsService, ComponentComunicatorService, SearchFilterService) {
     let model = this;
@@ -25,9 +25,8 @@ export const SearchByUserComponent = {
           })
       } else {
         model.userPosts = model.currentUser.posts;
-        model.results = SearchFilterService(model.userPosts, model.searchParam)
+        model.results = SearchFilterService(model.userPosts, model.searchParam);
       }
-
     }
   }
 }

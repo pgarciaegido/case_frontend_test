@@ -1,0 +1,8 @@
+<div class="container">
+  <h2 ng-if="model.results.length === 0">No results were found for {{model.searchParam}}. Sorry!</h2>
+  <h2 ng-if="model.results.length > 0">Results for {{model.searchParam}}</h2>
+  <div ng-repeat="post in model.results">
+    <h3>{{post.title}}</h3>
+    <p>{{post.body}}</p>
+  </div>
+</div>

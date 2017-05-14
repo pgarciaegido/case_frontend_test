@@ -1,0 +1,14 @@
+<div class="container">
+  <h3>Select users</h3>
+  <select name="users" id="chart-select-user">
+    <option value="" disabled selected>Select a user</option>
+    <option ng-repeat="user in model.users"
+            value="{{user.name}}"
+            ng-click="model.selectUser($event)"
+            id="{{user.id}}">{{user.name}}</option>
+  </select>
+  <button ng-click="">Show only posts</button>
+  <button ng-click="">Show only albums</button>
+  <button ng-click="">Show all</button>
+  <div id="graphics" style="width:100%; height:400px;"></div>
+</div>
