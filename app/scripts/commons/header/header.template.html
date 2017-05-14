@@ -6,9 +6,9 @@
         <span ng-link="['Charts']">Stats</span>
       </div>
       <div class="pull-right">
-        <input ng-keydown="model.searchEnter($event)" ng-model="model.searchText" type="search">
-        <button ng-if="!model.userSearch" ng-link="['Search', {search: model.searchText}]">Search Posts</button>
-        <button ng-if="model.userSearch" ng-link="['SearchByUser',
+        <input id="search-input" ng-keydown="model.searchEnter($event)" ng-model="model.searchText" type="search">
+        <button ng-click="model.searchText = ''" ng-if="!model.userSearch" ng-link="['Search', {search: model.searchText}]">Search Posts</button>
+        <button ng-click="model.searchText = ''" ng-if="model.userSearch" ng-link="['SearchByUser',
                 {id: model.userId, search: model.searchText}]">Search Posts By User</button>
       </div>
     </div>
