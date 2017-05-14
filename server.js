@@ -40,6 +40,12 @@ server.register(require('inert'), (err) => {
 
   server.route({
     method: 'GET',
+    path: '/search-by-user/{userId}/{searchText}',
+    handler: renderIndex
+  });
+
+  server.route({
+    method: 'GET',
     path: '/user/{id}',
     handler: renderIndex
   });

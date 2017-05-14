@@ -8,7 +8,8 @@ export default function HeaderController($location) {
   // Searchs on clicking enter on the input
   model.searchEnter = function(event) {
     if(event.keyCode === 13) {
-      model.path = '/search/' + model.searchText;
+      model.path = model.userSearch ? `/search-by-user/${model.userId}/${model.searchText}`
+                                    : `/search/${model.searchText}`
       $location.path(model.path);
     }
   }
@@ -22,8 +23,11 @@ export default function HeaderController($location) {
     // If url contains user, activates userSearch.
     if(isUserRegex.test(url)) {
       model.userSearch = true;
-      // Gets user id
+      // Gets user id in url
       model.userId = url.match(userIdRegex)[1];
     }
+    else { model.userSearch = false }
   }
+
+
 }

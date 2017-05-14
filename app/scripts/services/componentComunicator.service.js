@@ -11,5 +11,13 @@ export default function ComponentComunicatorService() {
     return comunicator[key];
   }
 
+  comunicator.setCurrentUser = function(userId, posts) {
+    comunicator.currentUser = { userId, posts };
+  }
+
+  comunicator.getCurrentUser = function() {
+    return comunicator.currentUser;
+  }
+
   return comunicator;
 }
