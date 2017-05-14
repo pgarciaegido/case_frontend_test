@@ -11,7 +11,7 @@
       <div class="row">
         <div ng-link="['Album', {albumId: album.id, id: model.userId}]"
              ng-repeat="album in model.albums" class="item">
-          <h3 class="text-center" >{{album.title}}</h3>
+          <p class="text-center" >{{album.title}}</p>
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
       <h2 class="text-center">Posts</h2>
       <div ng-link="['Post', {postId: post.id, id: model.userId}]"
            ng-repeat="post in model.posts" class="item">
-        <h3 class="text-center">{{post.title}}</h3>
+        <p class="text-center">{{post.title}}</p>
       </div>
     </div>
   </div>
