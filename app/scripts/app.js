@@ -8,6 +8,8 @@ import HttpRequestsService from './services/http-requests.service';
 import ComponentComunicatorService from './services/component-comunicator.service';
 import SearchFilterService from './services/search-filter.service';
 
+HttpRequestsService.$inject = ['$http'];
+
 const root = angular
   .module('caseTest', [ngComponentRouter, commons, components])
   .factory('HttpRequestsService', HttpRequestsService)
