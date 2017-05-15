@@ -1,13 +1,5 @@
 display-albums-posts{
 
-  .breadcrumb-container{
-    @include breadcrumbContainer();
-
-    p{
-      @include breadcrumbText();
-    }
-  }
-
   h2{
     color: $green;
   }

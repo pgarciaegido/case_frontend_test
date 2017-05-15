@@ -1,0 +1,9 @@
+breadcrumb{
+  .breadcrumb-container{
+    @include breadcrumbContainer();
+
+    p{
+      @include breadcrumbText();
+    }
+  }
+}

@@ -11,6 +11,7 @@ export default function HeaderController($location) {
       model.path = model.userSearch ? `/search-by-user/${model.userId}/${model.searchText}`
                                     : `/search/${model.searchText}`
       $location.path(model.path);
+      // Empties input search
       document.getElementById('search-input').value = '';
     }
   }
@@ -29,6 +30,4 @@ export default function HeaderController($location) {
     }
     else { model.userSearch = false }
   }
-
-
 }
