@@ -112,10 +112,10 @@ It will start up the server and gulp will be watching to any code modification.
 If you are a MAC or Linux user, this command might not work. As a windows user, I use *concurrently* to concatenate different commands. Modify the package.json to get rid of this setup:
 ```json
 "scripts": {
-  "start": "gulp watch && nodemon server"
+  "start": "gulp watch & nodemon server"
 },
 ```
-For windows users, just install *concurrently* globally:
+For windows users, just install *concurrently*:
 ```sh
 npm install -g concurrently
 ```
@@ -125,13 +125,9 @@ I strongly recomment *nodemon* in your development process. If you don't have it
 npm install -g nodemon
 ```
 
-If you would like to lint your brand new code, you can run
+If you would like to lint your brand new code using esline, you can run
 ```sh
 npm run lint
-```
-It will require you to have eslint globally installed
-```sh
-npm install -g eslint
 ```
 
 ## Contact
