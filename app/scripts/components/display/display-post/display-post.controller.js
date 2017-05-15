@@ -14,8 +14,14 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
     model.pathComments = routesAPI.getCommentsByPostIdPath + model.postId;
 
     HttpRequestsService.get(model.pathComments)
-      .then((res) => model.comments = res)
-      .catch((err) => model.feedback = 'Error fetching comments! ' + err);
+      .then((res) => {
+        model.comments = res;
+        model.hideLoader = true;
+      })
+      .catch((err) => {
+        console.log('Error fetching comments! ' + err);
+        model.hideLoader = true;
+      });
 
     // Here we get the selected post object from router. If we don't pass
     // from router, make new request to API.
@@ -29,7 +35,12 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
       HttpRequestsService.get(model.pathPost)
         .then((res) => {
           model.post = res;
-        });
+          model.hideLoader = true;
+        })
+        .catch((err) => {
+          console.log('error fetching posts ' + err);
+          model.hideLoader = true;
+        })
     }
   }
 }

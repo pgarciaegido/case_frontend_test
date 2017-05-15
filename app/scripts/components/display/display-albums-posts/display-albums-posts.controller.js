@@ -12,6 +12,7 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
   model.userId;
 
   model.formOpen = false;
+  model.hideLoader = false;
 
   // When router selects this component:
   model.$routerOnActivate = function (next) {
@@ -21,13 +22,26 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
     model.pathPosts = routesAPI.getPostsByUserIdPath + model.userId;
     model.pathAlbums = routesAPI.getAlbumsByIdPath + model.userId;
 
+    // First request posts, then albums
     HttpRequestsService.get(model.pathPosts)
-      .then((res) => model.posts = res)
-      .catch((err) => model.feedback = 'Error fetching posts! ' + err);
+      .then((res) => {
+        model.posts = res;
 
-    HttpRequestsService.get(model.pathAlbums)
-      .then((res) => model.albums = res)
-      .catch((err) => model.feedback = 'Error fetching albums! ' + err);
+        HttpRequestsService.get(model.pathAlbums)
+          .then((res) => {
+            model.albums = res;
+            model.hideLoader = true;
+          })
+          .catch((err) => {
+            console.log('Error fetching albums! ' + err);
+            model.hideLoader = true;
+          })
+      })
+      .catch((err) => {
+        console.log('Error fetching posts! ' + err);
+        model.hideLoader = true;
+      })
+
   }
 
   model.$routerOnDeactivate = function (next) {
@@ -55,6 +69,8 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
     if(!model.title || !model.body)
       return model.feedback = 'Title or body missing!';
 
+    model.hideLoader = false;
+
     let data = {
       title: model.title,
       body: model.body,
@@ -65,10 +81,12 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
       .then((x) => {
         model.posts.push(x);
         model.feedback = 'Post created!';
+        model.hideLoader = true;
       })
       .catch((err) => {
-        model.feedback = 'Error creating post!'
-        console.log('error posting ' + err)
+        model.feedback = 'Error creating post!';
+        console.log('error posting ' + err);
+        model.hideLoader = true;
       })
   }
 }

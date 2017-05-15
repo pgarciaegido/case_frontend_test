@@ -6,6 +6,8 @@ export default function SearchGeneralController (HttpRequestsService,
 
   let model = this;
 
+  model.hideLoader = false;
+
   model.$routerOnActivate = function (next) {
     // Try to get posts from comunicator.
     model.searchParam = next.params.search;
@@ -21,10 +23,12 @@ export default function SearchGeneralController (HttpRequestsService,
           ComponentComunicatorService.setInfo('posts', result);
 
           model.results = SearchFilterService(model.posts, model.searchParam);
+          model.hideLoader = true;
         });
 
     } else{
       model.results = SearchFilterService(model.posts, model.searchParam);
+      model.hideLoader = true;
     }
   }
 }
