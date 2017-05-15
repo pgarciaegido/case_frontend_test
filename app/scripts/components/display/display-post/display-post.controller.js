@@ -21,13 +21,13 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
     model.post = ComponentComunicatorService.getInfo('post');
     // Returns an array, so get first object
     if(model.post){
-      model.post = model.post[0]
+      model.post = model.post[0];
     }
     else {
       model.pathPost = routesAPI.getPostsByIdPath + model.postId
       HttpRequestsService.get(model.pathPost)
         .then(res => {
-          model.post = res
+          model.post = res;
         });
     }
   }

@@ -7,5 +7,6 @@ export const routesAPI = {
   getPostsByUserIdPath: '/posts?userId=',
   getAlbumsByIdPath: '/albums?userId=',
   getPhotosByAlbumIdPath: '/photos?albumId=',
-  getCommentsByPostIdPath: '/comments?postId='
+  getCommentsByPostIdPath: '/comments?postId=',
+  postPost: '/posts'
 }

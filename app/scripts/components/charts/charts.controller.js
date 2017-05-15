@@ -28,7 +28,7 @@ export default function ChartsController(HttpRequestsService, ComponentComunicat
     let selectedUserName = event.target.value;
     let pathPosts = routesAPI.getPostsByUserIdPath + selectedUserId;
     let pathAlbums = routesAPI.getAlbumsByIdPath + selectedUserId;
-    let series = {}
+    let series = {};
     let chartSeries = model.chart.series;
 
     // If user is already included, return function

@@ -1,5 +1,15 @@
 <breadcrumb></breadcrumb>
 <div class="container">
+  <!-- create post form -->
+  <button ng-click="model.toggleForm()">Add new post!</button>
+
+  <p class="text-center">{{model.feedback}}</p>
+  <form ng-hide="!model.formOpen" ng-submit="model.handleForm()">
+    <input type="text" ng-model="model.title" placeholder="Title">
+    <textarea ng-model="model.body" placeholder="Body"></textarea>
+    <input type="submit" value="Send!">
+  </form>
+
   <div class="row">
     <!-- albums -->
     <div class="col-sm-12 col-md-6 album-post-cnt">

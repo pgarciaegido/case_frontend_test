@@ -11,6 +11,8 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
 
   model.userId;
 
+  model.formOpen = false;
+
   // When router selects this component:
   model.$routerOnActivate = function (next, previous) {
     // Getting id param
@@ -35,5 +37,32 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
       model.post = model.posts.filter(x => x.id === postId)
       ComponentComunicatorService.setInfo('post', model.post)
     }
+  }
+
+  // Opens or closes form
+  model.toggleForm = function () {
+    model.formOpen = !model.formOpen;
+  }
+
+  model.title = '';
+  model.body = '';
+  model.feedback = '';
+
+  model.handleForm = function () {
+    // Checks that fields are not empty
+    if(!model.title || !model.body)
+      return model.feedback = 'Title or body missing!';
+
+    let data = {
+      title: model.title,
+      body: model.body,
+      userId: model.userId
+    }
+
+    HttpRequestsService.post(data)
+      .then((x) => {
+        model.posts.push(x);
+        model.feedback = 'Post created!';
+      })
   }
 }

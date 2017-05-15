@@ -1,5 +1,22 @@
 display-albums-posts{
 
+  button{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  form{
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+
+    input, textarea{
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
   h2{
     color: $green;
     margin-top: $paddingMain;

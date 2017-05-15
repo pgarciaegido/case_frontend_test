@@ -4,10 +4,10 @@ export default function BreadcrumbController(HttpRequestsService,
                                              ComponentComunicatorService,
                                              $location) {
   let model = this;
-  // Tries to get username from here.
+  // Tries to get cached username from here.
   model.userName = ComponentComunicatorService.getInfo('currentUserName');
 
-  // If not working, make ajax call to get it from API.
+  // If not working, make ajax call to get it from API [below].
 
   model.url = $location.path();
   // Getting userId from url.
@@ -25,11 +25,13 @@ export default function BreadcrumbController(HttpRequestsService,
     else return model.mainMenuBC = true;
   }()
 
+  // If not username cached, request and cache.
   if (!model.userName) {
     let path = routesAPI.getUserByIdPath + model.userId;
     HttpRequestsService.get(path)
       .then(res => {
-        model.userName = res[0].name
+        model.userName = res[0].name;
+        ComponentComunicatorService.setInfo('currentUserName', model.userName);
       })
   }
 }

@@ -16,6 +16,6 @@ const root = angular
   .factory('ComponentComunicatorService', ComponentComunicatorService)
   .factory('SearchFilterService', SearchFilterService)
   .component('appRoot', AppComponent)
-  .value("$routerRootComponent", "appRoot")
+  .value("$routerRootComponent", "appRoot");
 
 export default root

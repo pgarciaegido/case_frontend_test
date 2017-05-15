@@ -23,7 +23,7 @@ export default function HeaderController($location) {
   window.onhashchange = function() {
     let url = window.location.href;
 
-    urlContainsUser(url)
+    urlContainsUser(url);
   }
 
   function urlContainsUser (url) {
