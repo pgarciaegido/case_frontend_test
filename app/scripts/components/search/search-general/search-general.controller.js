@@ -1,3 +1,5 @@
+import { routesAPI } from '../../../utils/routes';
+
 export default function SearchGeneralController (HttpRequestsService,
                                                  ComponentComunicatorService,
                                                  SearchFilterService) {
@@ -12,9 +14,8 @@ export default function SearchGeneralController (HttpRequestsService,
     // This will cache the posts so we only make one call to the API.
 
     if (!model.posts) {
-      model.pathPosts = '/posts'
 
-      HttpRequestsService.get(model.pathPosts)
+      HttpRequestsService.get(routesAPI.getAllPostsPath)
         .then((result) => {
           model.posts = result;
           ComponentComunicatorService.setInfo('posts', result);

@@ -1,10 +1,10 @@
+import { routesAPI } from '../../../utils/routes';
+
 export default function UsersListController (HttpRequestsService, ComponentComunicatorService) {
   let model = this;
 
   model.users = [];
-  model.pathUsers = '/users';
-
-  HttpRequestsService.get(model.pathUsers)
+  HttpRequestsService.get('/users')
     .then(res => {
       model.users = res;
       ComponentComunicatorService.setInfo('users', res);

@@ -1,3 +1,5 @@
+import { routesAPI } from '../../utils/routes';
+
 export default function BreadcrumbController(HttpRequestsService,
                                              ComponentComunicatorService,
                                              $location) {
@@ -21,11 +23,10 @@ export default function BreadcrumbController(HttpRequestsService,
     if (model.url.indexOf('album') !== -1) return model.albumBC = true;
     else if (model.url.indexOf('post') !== -1) return model.postBC = true;
     else return model.mainMenuBC = true;
-
   }()
 
   if (!model.userName) {
-    let path = '/users?id=' + model.userId;
+    let path = routesAPI.getUserByIdPath + model.userId;
     HttpRequestsService.get(path)
       .then(res => {
         model.userName = res[0].name

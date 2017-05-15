@@ -4,8 +4,8 @@ import { AppComponent } from './app.component';
 import commons from './commons/commons';
 import components from './components/components';
 
-import HttpRequestsService from './services/httpRequests.service';
-import ComponentComunicatorService from './services/componentComunicator.service';
+import HttpRequestsService from './services/http-requests.service';
+import ComponentComunicatorService from './services/component-comunicator.service';
 import SearchFilterService from './services/search-filter.service';
 
 const root = angular

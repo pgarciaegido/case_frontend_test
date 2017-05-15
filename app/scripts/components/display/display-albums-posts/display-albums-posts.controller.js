@@ -1,3 +1,5 @@
+import { routesAPI } from '../../../utils/routes';
+
 export default
 function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorService) {
 
@@ -14,8 +16,8 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
     // Getting id param
     model.userId = next.params.id;
 
-    model.pathPosts = '/posts?userId=' + model.userId;
-    model.pathAlbums = '/albums?userId=' + model.userId;
+    model.pathPosts = routesAPI.getPostsByUserIdPath + model.userId;
+    model.pathAlbums = routesAPI.getAlbumsByIdPath + model.userId;
 
     HttpRequestsService.get(model.pathPosts)
       .then(res => model.posts = res);

@@ -1,5 +1,6 @@
 import highcharts from 'highcharts';
 import { defaultConfig } from './charts.config.js';
+import { routesAPI } from '../../utils/routes';
 
 export default function ChartsController(HttpRequestsService, ComponentComunicatorService) {
 
@@ -10,14 +11,12 @@ export default function ChartsController(HttpRequestsService, ComponentComunicat
   model.usersInfo = [];
 
   // Chart info
-  console.log(defaultConfig);
   model.chartInfo = defaultConfig;
 
   model.chart = highcharts.chart('graphics', model.chartInfo);
 
   if (!model.users) {
-    model.pathUsers = '/users';
-    HttpRequestsService.get(model.pathUsers)
+    HttpRequestsService.get(routesAPI.getAllUsersPath)
       .then((res) => {
         model.users = res;
         ComponentComunicatorService.setInfo('users', res);
@@ -27,8 +26,8 @@ export default function ChartsController(HttpRequestsService, ComponentComunicat
   model.selectUser = function (event) {
     let selectedUserId = event.target.id;
     let selectedUserName = event.target.value;
-    let pathPosts = '/posts?userId=' + selectedUserId;
-    let pathAlbums = '/albums?userId=' + selectedUserId;
+    let pathPosts = routesAPI.getPostsByUserIdPath + selectedUserId;
+    let pathAlbums = routesAPI.getAlbumsByIdPath + selectedUserId;
     let series = {}
     let chartSeries = model.chart.series;
 

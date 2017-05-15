@@ -1,3 +1,5 @@
+import { routesAPI } from '../../../utils/routes';
+
 export default function DisplayPostController(HttpRequestsService, ComponentComunicatorService) {
   let model = this;
 
@@ -9,7 +11,7 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
     model.postId = next.params.postId;
     model.userId = next.params.id;
 
-    model.pathComments = '/comments?postId=' + model.postId;
+    model.pathComments = routesAPI.getCommentsByPostIdPath + model.postId;
 
     HttpRequestsService.get(model.pathComments)
       .then(res => model.comments = res);
@@ -22,7 +24,7 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
       model.post = model.post[0]
     }
     else {
-      model.pathPost = '/posts/' + model.postId
+      model.pathPost = routesAPI.getPostsByIdPath + model.postId
       HttpRequestsService.get(model.pathPost)
         .then(res => {
           model.post = res
