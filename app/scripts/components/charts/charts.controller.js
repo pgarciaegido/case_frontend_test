@@ -5,8 +5,7 @@ import { routesAPI } from '../../utils/routes';
 export default function ChartsController(HttpRequestsService, ComponentComunicatorService) {
 
   let model = this;
-  // Get array of all users to display select
-  model.users = ComponentComunicatorService.getInfo('users');
+
   model.usersSelected = [];
   model.usersInfo = [];
 
@@ -14,8 +13,10 @@ export default function ChartsController(HttpRequestsService, ComponentComunicat
 
   // Chart info
   model.chartInfo = defaultConfig;
-
   model.chart = highcharts.chart('graphics', model.chartInfo);
+
+  // Get array of all users to display select
+  model.users = ComponentComunicatorService.getInfo('users');
 
   if (!model.users) {
     HttpRequestsService.get(routesAPI.getAllUsersPath)
