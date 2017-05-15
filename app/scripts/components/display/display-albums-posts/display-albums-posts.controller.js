@@ -22,10 +22,12 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
     model.pathAlbums = routesAPI.getAlbumsByIdPath + model.userId;
 
     HttpRequestsService.get(model.pathPosts)
-      .then(res => model.posts = res);
+      .then(res => model.posts = res)
+      .catch(err => model.feedback = 'Error fetching posts! ' + err);
 
     HttpRequestsService.get(model.pathAlbums)
-      .then(res => model.albums = res);
+      .then(res => model.albums = res)
+      .catch(err => model.feedback = 'Error fetching albums! ' + err);
   }
 
   model.$routerOnDeactivate = function (next, previous) {
@@ -63,6 +65,10 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
       .then((x) => {
         model.posts.push(x);
         model.feedback = 'Post created!';
+      })
+      .catch((err) => {
+        model.feedback = 'Error creating post!'
+        console.log('error posting ' + err)
       })
   }
 }

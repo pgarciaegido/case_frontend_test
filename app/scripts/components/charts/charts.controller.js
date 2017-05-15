@@ -51,10 +51,8 @@ export default function ChartsController(HttpRequestsService, ComponentComunicat
             series.data = [postsLength, albumsLength, sumAlbumsPost];
             model.chart.addSeries(series);
           })
+          .catch((error) => console.log('Error fetching albums ' + error))
       })
-  }
-
-  model.changeCategories = function() {
-
+      .catch((error) => console.log('Error fetching posts ' + error))
   }
 }

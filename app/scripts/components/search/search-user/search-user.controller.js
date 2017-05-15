@@ -22,6 +22,7 @@ export default function SearchUserController (HttpRequestsService,
 
           model.results = SearchFilterService(model.userPosts, model.searchParam)
         })
+        .catch(err => model.feedback = 'Error fetching posts! ' + err);
     } else {
       model.userPosts = model.currentUser.posts;
       model.results = SearchFilterService(model.userPosts, model.searchParam);

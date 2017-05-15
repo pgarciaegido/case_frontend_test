@@ -9,6 +9,7 @@ export default function UsersListController (HttpRequestsService, ComponentComun
       model.users = res;
       ComponentComunicatorService.setInfo('users', res);
     })
+    .catch(err => model.feedback = 'Error fetching users! ' + err);
 
   model.setCurrentUser = function(userName) {
     ComponentComunicatorService.setInfo('currentUserName', userName);

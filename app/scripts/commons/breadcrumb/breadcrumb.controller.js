@@ -33,5 +33,6 @@ export default function BreadcrumbController(HttpRequestsService,
         model.userName = res[0].name;
         ComponentComunicatorService.setInfo('currentUserName', model.userName);
       })
+      .catch(error => console.log('Error in breadcrumb request -->' + error));
   }
 }

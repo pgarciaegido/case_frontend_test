@@ -71,6 +71,7 @@ Specific information regarding certain component might be found in inner comment
 * When clicking specific post, displays further info about the post, and all comments asociated with it.
 * On stats, you can select a user from a select list, and automatically it will display a chart showing that particular user's info like the number of albums or posts.
 * One can search throughout the whole application. If user has been selected, it wil search only posts made by that user. Otherwise, it will search for any post made by any user.
+* POST their own posts.
 
 ## Installing and running the application
 Clone the project from my repository -you should have git installed-.

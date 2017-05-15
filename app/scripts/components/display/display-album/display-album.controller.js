@@ -13,7 +13,8 @@ export default function DisplayAlbumController(HttpRequestsService, ComponentCom
     model.pathAlbum = routesAPI.getPhotosByAlbumIdPath + model.albumId;
 
     HttpRequestsService.get(model.pathAlbum)
-      .then(res => model.photos = res);
+      .then(res => model.photos = res)
+      .catch(err => console.log('error fetching album ' + err))
 
   }
 }

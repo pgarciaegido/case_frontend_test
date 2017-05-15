@@ -14,7 +14,8 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
     model.pathComments = routesAPI.getCommentsByPostIdPath + model.postId;
 
     HttpRequestsService.get(model.pathComments)
-      .then(res => model.comments = res);
+      .then(res => model.comments = res)
+      .catch(err => model.feedback = 'Error fetching comments! ' + err);
 
     // Here we get the selected post object from router. If we don't pass
     // from router, make new request to API.

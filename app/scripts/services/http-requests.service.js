@@ -14,6 +14,9 @@ export default function HttpRequestsService($http) {
     let promise = $http.get(httpService.baseUrl + path)
       .then((response) => {
         return response.data;
+      })
+      .catch((error) => {
+        return error;
       });
     return promise;
   }
@@ -22,6 +25,9 @@ export default function HttpRequestsService($http) {
     let promise = $http.post(httpService.baseUrl + routesAPI.postPost, data)
       .then((response) => {
         return response.data;
+      })
+      .catch((error) => {
+        return error;
       });
     return promise;
   }
