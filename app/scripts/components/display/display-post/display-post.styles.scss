@@ -1,18 +1,15 @@
 display-post{
 
+  h2{
+    margin-top: $paddingMain;
+  }
+
   .comments{
 
     .comment{
       @include card();
       cursor: auto;
       margin-bottom: 20px;
-
-      .comment-author{
-
-        h4{
-
-        }
-      }
     }
   }
 }
