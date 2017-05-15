@@ -1,11 +1,11 @@
 <header>
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-lg-4">
+    <div class="header-ctn row">
+      <div class="header-menu-ctn col-sm-4">
         <span ng-link="['List']">Home</span>
         <span ng-link="['Charts']">Stats</span>
       </div>
-      <div class="pull-right">
+      <div class="search-ctn container">
         <input id="search-input" ng-keydown="model.searchEnter($event)" ng-model="model.searchText" type="search">
         <button ng-click="model.searchText = ''" ng-if="!model.userSearch" ng-link="['Search', {search: model.searchText}]">Search Posts</button>
         <button ng-click="model.searchText = ''" ng-if="model.userSearch" ng-link="['SearchByUser',

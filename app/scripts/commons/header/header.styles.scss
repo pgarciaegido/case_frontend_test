@@ -9,5 +9,46 @@ app-header{
       font-weight: bolder;
       color: white;
     }
+
+    .search-ctn{
+      text-align: right;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  app-header{
+
+    .header-ctn {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 475px) {
+  app-header{
+
+    .header-ctn {
+      display: block;
+
+      .header-menu-ctn{
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .search-ctn{
+        text-align: center;
+        float: auto !important;
+
+        input, button{
+          width: 100%;
+        }
+      }
+    }
   }
 }

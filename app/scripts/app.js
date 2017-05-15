@@ -18,6 +18,4 @@ const root = angular
   .component('appRoot', AppComponent)
   .value("$routerRootComponent", "appRoot")
 
-document.addEventListener('DOMContentLoaded', () => angular.bootstrap(document, ['caseTest']))
-
 export default root

@@ -16,12 +16,17 @@ export default function HeaderController($location) {
     }
   }
 
+  const isUserRegex = /user/g;
+  const userIdRegex = /user\/([0-9]+)/;
+
   // Executes when browser url changes.
   window.onhashchange = function() {
     let url = window.location.href;
-    let isUserRegex = /user/g;
-    let userIdRegex = /user\/([0-9]+)/;
 
+    urlContainsUser(url)
+  }
+
+  function urlContainsUser (url) {
     // If url contains user, activates userSearch.
     if(isUserRegex.test(url)) {
       model.userSearch = true;
@@ -29,5 +34,10 @@ export default function HeaderController($location) {
       model.userId = url.match(userIdRegex)[1];
     }
     else { model.userSearch = false }
+
+  }
+
+  model.$onInit = function () {
+    urlContainsUser(window.location.href);
   }
 }
