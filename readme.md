@@ -125,6 +125,15 @@ I strongly recomment *nodemon* in your development process. If you don't have it
 npm install -g nodemon
 ```
 
+If you would like to lint your brand new code, you can run
+```sh
+npm run lint
+```
+It will require you to have eslint globally installed
+```sh
+npm install -g eslint
+```
+
 ## Contact
 You can contact me on pgarciaegido@gmail.com for any particular issue.
 

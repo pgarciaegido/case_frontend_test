@@ -1,4 +1,3 @@
-import { routesAPI } from '../../../utils/routes';
 import SearchUserController from './search-user.controller';
 
 SearchUserController.$inject = ['HttpRequestsService',

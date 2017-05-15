@@ -6,7 +6,7 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
   model.comments = [];
 
   // When router selects this component:
-  model.$routerOnActivate = function (next, previous) {
+  model.$routerOnActivate = function (next) {
     // Getting post param
     model.postId = next.params.postId;
     model.userId = next.params.id;
@@ -14,8 +14,8 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
     model.pathComments = routesAPI.getCommentsByPostIdPath + model.postId;
 
     HttpRequestsService.get(model.pathComments)
-      .then(res => model.comments = res)
-      .catch(err => model.feedback = 'Error fetching comments! ' + err);
+      .then((res) => model.comments = res)
+      .catch((err) => model.feedback = 'Error fetching comments! ' + err);
 
     // Here we get the selected post object from router. If we don't pass
     // from router, make new request to API.
@@ -27,7 +27,7 @@ export default function DisplayPostController(HttpRequestsService, ComponentComu
     else {
       model.pathPost = routesAPI.getPostsByIdPath + model.postId
       HttpRequestsService.get(model.pathPost)
-        .then(res => {
+        .then((res) => {
           model.post = res;
         });
     }

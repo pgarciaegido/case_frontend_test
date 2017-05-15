@@ -1,9 +1,11 @@
+import { routesAPI } from '../../../utils/routes';
+
 export default function SearchUserController (HttpRequestsService,
                                               ComponentComunicatorService,
                                               SearchFilterService) {
   let model = this;
 
-  model.$routerOnActivate = function (next, previous) {
+  model.$routerOnActivate = function (next) {
     model.userId = next.params.id;
     model.searchParam = next.params.search;
     model.userPosts = [];
@@ -22,7 +24,7 @@ export default function SearchUserController (HttpRequestsService,
 
           model.results = SearchFilterService(model.userPosts, model.searchParam)
         })
-        .catch(err => model.feedback = 'Error fetching posts! ' + err);
+        .catch((err) => model.feedback = 'Error fetching posts! ' + err);
     } else {
       model.userPosts = model.currentUser.posts;
       model.results = SearchFilterService(model.userPosts, model.searchParam);

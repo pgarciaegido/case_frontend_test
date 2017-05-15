@@ -29,10 +29,10 @@ export default function BreadcrumbController(HttpRequestsService,
   if (!model.userName) {
     let path = routesAPI.getUserByIdPath + model.userId;
     HttpRequestsService.get(path)
-      .then(res => {
+      .then((res) => {
         model.userName = res[0].name;
         ComponentComunicatorService.setInfo('currentUserName', model.userName);
       })
-      .catch(error => console.log('Error in breadcrumb request -->' + error));
+      .catch((error) => console.log('Error in breadcrumb request -->' + error));
   }
 }

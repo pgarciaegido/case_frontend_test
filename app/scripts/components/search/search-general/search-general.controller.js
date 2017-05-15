@@ -6,7 +6,7 @@ export default function SearchGeneralController (HttpRequestsService,
 
   let model = this;
 
-  model.$routerOnActivate = function (next, previous) {
+  model.$routerOnActivate = function (next) {
     // Try to get posts from comunicator.
     model.searchParam = next.params.search;
     model.posts = ComponentComunicatorService.getInfo('posts');

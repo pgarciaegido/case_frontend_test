@@ -6,7 +6,8 @@
   "scripts": {
     "test": "",
     "start": "concurrently \"gulp watch\" \"nodemon server\"",
-    "build": "gulp build --production"
+    "build": "gulp build --production",
+    "lint": "eslint ."
   },
   "author": "Pablo Egido <pgarciaegido@gmail.com>",
   "license": "ISC",

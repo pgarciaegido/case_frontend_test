@@ -14,7 +14,7 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
   model.formOpen = false;
 
   // When router selects this component:
-  model.$routerOnActivate = function (next, previous) {
+  model.$routerOnActivate = function (next) {
     // Getting id param
     model.userId = next.params.id;
 
@@ -22,21 +22,21 @@ function DisplayAlbumsPostsController(HttpRequestsService, ComponentComunicatorS
     model.pathAlbums = routesAPI.getAlbumsByIdPath + model.userId;
 
     HttpRequestsService.get(model.pathPosts)
-      .then(res => model.posts = res)
-      .catch(err => model.feedback = 'Error fetching posts! ' + err);
+      .then((res) => model.posts = res)
+      .catch((err) => model.feedback = 'Error fetching posts! ' + err);
 
     HttpRequestsService.get(model.pathAlbums)
-      .then(res => model.albums = res)
-      .catch(err => model.feedback = 'Error fetching albums! ' + err);
+      .then((res) => model.albums = res)
+      .catch((err) => model.feedback = 'Error fetching albums! ' + err);
   }
 
-  model.$routerOnDeactivate = function (next, previous) {
+  model.$routerOnDeactivate = function (next) {
     // Passes the requested post to display-post component.
     // Setter here, getter there.
     if (next.routeName === 'Post') {
       let postId = next.params.postId;
       // Gets the requested post info from posts array
-      model.post = model.posts.filter(x => x.id === postId)
+      model.post = model.posts.filter((x) => x.id === postId)
       ComponentComunicatorService.setInfo('post', model.post)
     }
   }

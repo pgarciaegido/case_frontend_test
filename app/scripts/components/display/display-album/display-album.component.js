@@ -1,7 +1,6 @@
 import DisplayAlbumController from './display-album.controller';
 
-DisplayAlbumController.$inject = ['HttpRequestsService',
-                                  'ComponentComunicatorService']
+DisplayAlbumController.$inject = ['HttpRequestsService']
 
 export const DisplayAlbum = {
   templateUrl: 'display-album.template.html',
