@@ -10,6 +10,8 @@ export default function ChartsController(HttpRequestsService, ComponentComunicat
   model.usersSelected = [];
   model.usersInfo = [];
 
+  model.hideLoader = false;
+
   // Chart info
   model.chartInfo = defaultConfig;
 
@@ -20,10 +22,14 @@ export default function ChartsController(HttpRequestsService, ComponentComunicat
       .then((res) => {
         model.users = res;
         ComponentComunicatorService.setInfo('users', res);
+        model.hideLoader = true;
       })
+  } else {
+    model.hideLoader = true;
   }
 
   model.selectUser = function (event) {
+    model.hideLoader = false;
     let selectedUserId = event.target.id;
     let selectedUserName = event.target.value;
     let pathPosts = routesAPI.getPostsByUserIdPath + selectedUserId;
@@ -33,7 +39,7 @@ export default function ChartsController(HttpRequestsService, ComponentComunicat
 
     // If user is already included, return function
     for (let serie of chartSeries) {
-      if (serie.name === selectedUserName) return
+      if (serie.name === selectedUserName) return model.hideLoader = true
     }
 
     // Requires posts from selected user
@@ -50,9 +56,16 @@ export default function ChartsController(HttpRequestsService, ComponentComunicat
             series.name = selectedUserName;
             series.data = [postsLength, albumsLength, sumAlbumsPost];
             model.chart.addSeries(series);
+            model.hideLoader = true;
           })
-          .catch((error) => console.log('Error fetching albums ' + error))
+          .catch((error) =>{
+            model.hideLoader = true;
+             console.log('Error fetching albums ' + error)
+          })
       })
-      .catch((error) => console.log('Error fetching posts ' + error))
+      .catch((error) => {
+        model.hideLoader = true;
+        console.log('Error fetching posts ' + error)
+      })
   }
 }
